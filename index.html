@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <title>RadioBest</title>
+ <meta charset="utf-8">
+ <link rel="apple-touch-icon" type="image/png" sizes="167x167" href="img/best.png">
+
+
+    <style type="text/css">
+audio{
+    display:none;
+}
+
+body{
+    background-color: #2d3436;
+}
+
+.logo {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    height: 70%;
+}
+
+label.btn-toggle{
+    font-size: 13.3333px;
+    font-family: sans-serif;
+    display: inline-flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    color: buttontext;
+    border-radius: 2px;
+    user-select: none;
+}
+
+label.btn-toggle:hover{
+  transform: scale(1.1);
+}
+
+.btn-toggle>input[type="checkbox"]:not(:checked)~.on-text{
+  display: none;
+}
+
+.btn-toggle>input[type="checkbox"]:checked~.off-text{
+  display: none;
+}
+
+#btnPlayPause{
+  width: 60px;
+  height: 60px;
+}
+
+.PlayPause{
+margin-top: 20%;
+margin-left: 50%;
+margin-right: 50%;
+}
+    </style>
+
+  </head>
+  <body>
+    <h2><img src="img/best.png" class="logo"></img></h2>
+
+
+    <div class="PlayPause">
+<label id="btnPlayPause" role="button" class="btn-toggle" tabindex="0" title="Play / Pause">
+  <input type="checkbox" tabindex="-1" autocomplete="off" hidden aria-hidden="true" />
+  <div onClick="Pause()"class="on-text"><img src="img/player_stop.png" alt="play" width="150" height="150"></div>
+  <div onClick="Play()" class="off-text"><img src="img/player_play.png" alt="Stop"  width="150" height="150"></div>
+</label>
+
+    <audio controls id="audioval">
+          <source src="https://s2.radioparty.pl:8015/stream?nocache=7664" type="audio/mp3">
+        </audio>
+
+    </div>
+
+    <script type="text/javascript">
+      function Play()
+      {
+        var myAudio = document.getElementById("audioval");
+        if(myAudio.paused) {
+            myAudio.play();
+        }
+      }
+     function Pause()
+      {
+        var myAudio = document.getElementById("audioval");
+        if(myAudio.play) {
+            myAudio.pause();
+        }
+      }
+    </script>
+
+
+  </body>
+</html>
